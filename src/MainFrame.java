@@ -14,7 +14,7 @@ public class MainFrame extends Frame {
     private Label La = new Label("OAO");
     private int count = 0;
     private int LaX = 50;
-    private Timer tl;
+    private Timer t1;
     private void initComp() {
         this.setBounds(100, 120, 400, 300);
         this.setLayout(null);
@@ -42,14 +42,19 @@ public class MainFrame extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(count++));
-                La.setBounds(LaX+=10,100,100,30);
+                t1.start();
             }
         });
         btnB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(count--));
-                La.setBounds(LaX-=10,100,100,30);
+            }
+        });
+        t1 = new Timer(300,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LaX+=10;
             }
         });
 
