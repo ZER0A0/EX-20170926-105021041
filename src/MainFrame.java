@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Timer;
 
 public class MainFrame extends Frame {
     public MainFrame() {
@@ -12,6 +13,8 @@ public class MainFrame extends Frame {
     private Button btnB = new Button("--");
     private Label La = new Label("OAO");
     private int count = 0;
+    private int LaX = 50;
+    private Timer tl;
     private void initComp() {
         this.setBounds(100, 120, 400, 300);
         this.setLayout(null);
@@ -39,12 +42,14 @@ public class MainFrame extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(count++));
+                La.setBounds(LaX+=10,100,100,30);
             }
         });
         btnB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(count--));
+                La.setBounds(LaX-=10,100,100,30);
             }
         });
 
